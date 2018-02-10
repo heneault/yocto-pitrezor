@@ -1,0 +1,6 @@
+#!/bin/sh
+
+source /boot/pitrezor.config
+
+cd /boot
+/usr/bin/pitrezor
