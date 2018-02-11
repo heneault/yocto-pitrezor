@@ -8,12 +8,12 @@ RDEPENDS_${PN} = "rng-tools"
 
 inherit pkgconfig python3native
 
-SRC_URI = "gitsm:///github.com/heneault/trezor-mcu.git;branch=pizero \
+SRC_URI = "gitsm://github.com/heneault/trezor-mcu.git;branch=pitrezor \
            file://start_pitrezor \
            file://pitrezor.config \
           "
 
-SRCREV = "5974180199dfa3b687faed96a5e34f065098da22"
+SRCREV = "e1c17b310c8be62e8ccc98ccb237b194cc7377ed"
 
 S = "${WORKDIR}/git"
 
