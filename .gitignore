@@ -6,4 +6,4 @@ build/downloads/
 build/sstate-cache/
 build/tmp/
 build/bitbake-cookerdaemon.log
-
+images
