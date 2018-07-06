@@ -13,7 +13,7 @@ SRC_URI = "gitsm://github.com/heneault/trezor-mcu.git;branch=pitrezor \
            file://pitrezor.config \
           "
 
-SRCREV = "802477601d90c3d5bf1fbda8745a0189f29b9365"
+SRCREV = "021ec192fec2a22859759f0733a9292c04f2b56c"
 
 S = "${WORKDIR}/git"
 
