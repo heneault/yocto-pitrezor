@@ -13,16 +13,15 @@ SRC_URI = "gitsm://github.com/heneault/trezor-mcu.git;branch=pitrezor \
            file://pitrezor.config \
           "
 
-SRCREV = "021ec192fec2a22859759f0733a9292c04f2b56c"
+SRCREV = "acf9dd71278ccb44f8139e224c56b88d822ff502"
 
 S = "${WORKDIR}/git"
 
 do_compile() {
   export EMULATOR=1
-  export TRANSPORT=USBG
   export PIZERO=1
   export CPUFLAGS=""
-  export USE_RANDOM=1
+  export RANDOM_DEV_FILE="/dev/random"
   make -C emulator
   make -C vendor/nanopb/generator/proto
   make -C firmware/protob

@@ -3,4 +3,4 @@
 source /boot/pitrezor.config
 
 cd /boot
-/usr/bin/pitrezor
+TREZOR_OLED_FULLSCREEN=1 /usr/bin/pitrezor
