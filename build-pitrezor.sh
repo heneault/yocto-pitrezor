@@ -15,7 +15,7 @@ docker run -t --rm -v $(pwd)/images:/images:z $IMAGE /bin/bash -c "\
 git clone https://github.com/heneault/yocto-pitrezor.git && \
 cd yocto-pitrezor && \
 git checkout $TAG && \
-git submodule update --init && \
+git submodule update --init --recursive && \
 . poky/oe-init-build-env build && \
 bitbake pitrezor-image && \
 cp tmp/deploy/images/raspberrypi0-wifi/pitrezor-image-raspberrypi0-wifi.rpi-sdimg /$IMGFILE"
