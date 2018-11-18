@@ -3,7 +3,7 @@ include recipes-core/images/core-image-minimal.bb
 
 # Include modules in rootfs
 IMAGE_INSTALL += " \
-	kernel-module-usb-f-hid \
+	kernel-module-gadgetfs \
 	kernel-module-dwc2 \
 	"
 IMAGE_INSTALL += " pitrezor "
@@ -28,6 +28,9 @@ customize_image() {
   echo "tz:5:respawn:/usr/bin/start_pitrezor" >> ${IMAGE_ROOTFS}/etc/inittab
 
   echo "LABEL=boot /boot vfat defaults 0 0" >> ${IMAGE_ROOTFS}/etc/fstab
+
+  echo "mkdir /dev/gadget && mount -t gadgetfs none /dev/gadget" >> ${IMAGE_ROOTFS}/etc/rcS.d/S10mountgadget
+  chmod a+x ${IMAGE_ROOTFS}/etc/rcS.d/S10mountgadget
 }
 
 ROOTFS_POSTPROCESS_COMMAND_append = " customize_image; "
