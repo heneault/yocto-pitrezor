@@ -1,6 +1,7 @@
---- git/drivers/usb/gadget/legacy/inode.c	2018-11-10 17:41:56.027719759 -0500
-+++ git.new/drivers/usb/gadget/legacy/inode.c	2018-11-10 18:00:17.401165612 -0500
-@@ -1284,7 +1284,7 @@
+diff -Nur kernel-source-orig/drivers/usb/gadget/legacy/inode.c kernel-source/drivers/usb/gadget/legacy/inode.c
+--- kernel-source-orig/drivers/usb/gadget/legacy/inode.c	2021-01-10 18:03:26.352594310 -0500
++++ kernel-source/drivers/usb/gadget/legacy/inode.c	2021-01-10 19:18:24.027112431 -0500
+@@ -1281,7 +1281,7 @@
  
  	qual.bLength = sizeof qual;
  	qual.bDescriptorType = USB_DT_DEVICE_QUALIFIER;
@@ -9,7 +10,7 @@
  
  	desc = dev->dev;
  	qual.bDeviceClass = desc->bDeviceClass;
-@@ -1393,11 +1393,8 @@
+@@ -1389,11 +1389,8 @@
  			if (value >= 0)
  				value = min (w_length, (u16) value);
  			break;
@@ -22,10 +23,10 @@
  		}
  		break;
  
-@@ -1856,7 +1853,6 @@
+@@ -1852,7 +1849,6 @@
+ 			|| dev->dev->bDescriptorType != USB_DT_DEVICE
  			|| dev->dev->bNumConfigurations != 1)
  		goto fail;
- 	dev->dev->bNumConfigurations = 1;
 -	dev->dev->bcdUSB = cpu_to_le16 (0x0200);
  
  	/* triggers gadgetfs_bind(); then we can enumerate. */
