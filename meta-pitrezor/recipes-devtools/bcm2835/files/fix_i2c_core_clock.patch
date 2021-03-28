@@ -1,12 +1,13 @@
-diff -Nur bcm2835-1.52.orig/src/bcm2835.h bcm2835-1.52/src/bcm2835.h
---- bcm2835-1.52.orig/src/bcm2835.h	2017-03-01 20:17:16.000000000 -0500
-+++ bcm2835-1.52/src/bcm2835.h	2018-01-24 14:15:00.055739461 -0500
-@@ -503,7 +503,7 @@
- #define LOW  0x0
+diff --git a/src/bcm2835.h b/src/bcm2835.h
+index 7d3e3b9..4a7c218 100644
+--- a/src/bcm2835.h
++++ b/src/bcm2835.h
+@@ -637,7 +637,7 @@
+ #endif
  
  /*! Speed of the core clock core_clk */
 -#define BCM2835_CORE_CLK_HZ		250000000	/*!< 250 MHz */
 +#define BCM2835_CORE_CLK_HZ		150000000	/*!< 150 MHz */
  
- /*! On RPi2 with BCM2836, and all recent OSs, the base of the peripherals is read from a /proc file */
+ /*! On all recent OSs, the base of the peripherals is read from a /proc file */
  #define BMC2835_RPI2_DT_FILENAME "/proc/device-tree/soc/ranges"

@@ -5,7 +5,11 @@ include recipes-core/images/core-image-minimal.bb
 IMAGE_INSTALL += " \
 	kernel-module-gadgetfs \
 	kernel-module-dwc2 \
+        kernel-module-vc4 \
 	"
+
+IMAGE_INSTALL_append_raspberrypi4 = " kernel-module-v3d libudev "
+
 IMAGE_INSTALL += " pitrezor "
 
 customize_image() {
