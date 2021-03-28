@@ -17,7 +17,7 @@ git clone https://github.com/heneault/yocto-pitrezor.git && \
 cd yocto-pitrezor && \
 git checkout $TAG && \
 git submodule update --init --recursive && \
-sed -i -e "s/^MACHINE.*/MACHINE ??= \"${MACHINE}\"/" conf/local.conf
+sed -i -e 's/^MACHINE.*/MACHINE ??= \"$MACHINE\"/' build/conf/local.conf && \
 . poky/oe-init-build-env build && \
 bitbake pitrezor-image && \
 cp tmp/deploy/images/$MACHINE/pitrezor-image-$MACHINE.rpi-sdimg /$IMGFILE"
