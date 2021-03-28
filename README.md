@@ -1,7 +1,7 @@
 # yocto-pitrezor
 OS linux platform for the pitrezor project (usign yocto)
 
-This code is used to build the linux platform image for the raspberry pi zero to be able to run the pitrezor software at bootup.
+This code is used to build the linux platform image for the raspberry pi zero and pi 4 to be able to run the pitrezor software at bootup.
 
 ## How to build pitrezor image?
 
