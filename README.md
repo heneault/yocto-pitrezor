@@ -10,5 +10,5 @@ This code is used to build the linux platform image for the raspberry pi zero an
 3. `cd yocto-pitrezor`
 4. `sudo ./build-pitrezor.sh TAG [raspberrypi4]` (where TAG is 1.9.4.1 for example, if left blank the script builds latest commit in master branch). You can optionnaly specify "raspberrypi4" to build an image for that platform. Otherwise default is pi zero.
 
-This creates file `build/pitrezor-TAG.zip` .
+This creates file `build/pitrezor-MACHINE-TAG.zip` .
 
