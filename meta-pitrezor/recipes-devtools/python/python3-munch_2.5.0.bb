@@ -1,11 +1,10 @@
 SUMMARY = "A dot-accessible dictionary (a la JavaScript objects)."
-
+DEPENDS = "python3-pbr"
 HOMEPAGE = "https://github.com/Infinidat/munch"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f0291cd32b2d6a91d9b19970c94d0a46"
 
-SRC_URI[md5sum] = "539311fdfc6419381b6f38d0695f01ee"
-SRC_URI[sha256sum] = "6ae3d26b837feacf732fb8aa5b842130da1daf221f5af9f9d4b2a0a6414b0d51"
+SRC_URI[sha256sum] = "2d735f6f24d4dba3417fa448cae40c6e896ec1fdab6cdb5e6510999758a4dbd2"
 
 BBCLASSEXTEND = "native nativesdk"
 
