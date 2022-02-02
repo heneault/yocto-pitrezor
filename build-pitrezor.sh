@@ -2,7 +2,7 @@
 set -e
 
 TAG=${1:-master}
-MACHINE=${2:-raspberrypi0-wifi} # raspberrypi0-wifi (default) or raspberrypi4
+MACHINE=${2:-raspberrypi0-wifi} # raspberrypi0-wifi (default), raspberrypi4 or raspberrypi0-2w-64
 IMAGE=pitrezor-build
 IMGFILE=imgs/pitrezor-$MACHINE-$TAG.img
 DOCKER_UID=30000

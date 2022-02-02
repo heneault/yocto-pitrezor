@@ -1,1 +1,1 @@
-PACKAGECONFIG_remove = "sdl"
+PACKAGECONFIG:remove = "sdl"

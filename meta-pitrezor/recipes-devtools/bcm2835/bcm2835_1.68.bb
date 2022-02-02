@@ -19,6 +19,4 @@ SRC_URI[sha256sum] = "b7eda59fd7bc3cb97fdac14e8455e86ddad75006d69270358ac8d00108
 
 inherit autotools
 
-RDEPENDS_${PN}-dev = ""
-
-FILES_${PN} = ""
+ALLOW_EMPTY:${PN} = "1"

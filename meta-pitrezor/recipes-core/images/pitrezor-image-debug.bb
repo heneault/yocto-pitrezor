@@ -1,6 +1,5 @@
 include pitrezor-image.bb 
-inherit extrausers
-EXTRA_USERS_PARAMS = "usermod -P raspberry root;"
+IMAGE_FEATURES += " debug-tweaks "
 
 customize_image_debug() {
   sed -i '/^DROPBEAR_EXTRA_ARGS=/ s/-w//' ${IMAGE_ROOTFS}${sysconfdir}/default/dropbear
@@ -9,7 +8,7 @@ customize_image_debug() {
   ln -s ../init.d/networking ${IMAGE_ROOTFS}${sysconfdir}/rc5.d/S05network
 }
 
-ROOTFS_POSTPROCESS_COMMAND_append = " customize_image_debug; "
+ROOTFS_POSTPROCESS_COMMAND:append = " customize_image_debug; "
 
-IMAGE_INSTALL += " iw wireless-regdb-static wpa-supplicant linux-firmware-rpidistro-bcm43430 linux-firmware-rpidistro-bcm43455 kernel-module-brcmfmac dropbear gdbserver strace "
+IMAGE_INSTALL += " iw wireless-regdb-static wpa-supplicant linux-firmware-rpidistro-bcm43430 linux-firmware-rpidistro-bcm43455 kernel-module-brcmfmac dropbear gdbserver strace linux-firmware-rpidistro-bcm43436 linux-firmware-rpidistro-bcm43436s"
 
