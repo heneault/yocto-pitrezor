@@ -13,7 +13,7 @@ SRC_URI = "git://github.com/heneault/trezor-firmware.git;branch=pitrezor \
            file://pitrezor.config \
           "
 
-SRCREV = "1e62209d024b7e84a7368be8175735372b8080c9"
+SRCREV = "82d709c8643f5a1581d3d94c51687b7e0fb0c114"
 
 S = "${WORKDIR}/git"
 
@@ -24,8 +24,8 @@ do_compile() {
   export EMULATOR=1
   export PIZERO=1
   export CPUFLAGS=""
-  export RANDOM_DEV_FILE="/dev/random"
   export ARCH_BITS=${SITEINFO_BITS}
+  export CC_FOR_BUILD=${BUILD_CC}
   cd legacy
   make vendor
   make -C emulator/pizero
