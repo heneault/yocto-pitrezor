@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#Sleep for two seconds to give the piTrezor time to start and go fullscreen (Can cause issues if piTrezor starts after this app)
+sleep 2
+/usr/bin/fbcp-ili9341

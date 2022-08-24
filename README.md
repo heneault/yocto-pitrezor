@@ -3,6 +3,8 @@ OS linux platform for the pitrezor project (usign yocto)
 
 This code is used to build the linux platform image for the raspberry pi zero and pi 4 to be able to run the pitrezor software at bootup.
 
+Note: This process will download and build a large amount of software, so be sure to allow at least 50GB of space on the host system and expect the process to take several hours.
+
 ## How to build pitrezor image?
 
 1. [Install Docker](https://docs.docker.com/engine/installation/)
