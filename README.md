@@ -10,7 +10,7 @@ Note: This process will download and build a large amount of software, so be sur
 1. [Install Docker](https://docs.docker.com/engine/installation/)
 2. `git clone https://github.com/heneault/yocto-pitrezor.git`
 3. `cd yocto-pitrezor`
-4. `sudo ./build-pitrezor.sh TAG [raspberrypi4-64 | raspberrypi0-2w-64]` (where TAG is 1.11.1.0 for example, if left blank the script builds latest commit in master branch). You can optionnaly specify "raspberrypi4-64" or "raspberrypi0-2w-64" to build an image for one of these platform. Otherwise the default platform is pi zero.
+4. `sudo ./build-pitrezor.sh TAG [raspberrypi4-64 | raspberrypi0-2w-64]` (where TAG is 1.11.2.0 for example, if left blank the script builds latest commit in master branch). You can optionnaly specify "raspberrypi4-64" or "raspberrypi0-2w-64" to build an image for one of these platform. Otherwise the default platform is pi zero.
 
 This creates file `build/pitrezor-MACHINE-TAG.zip` .
 
