@@ -5,9 +5,6 @@ MACHINE=${2:-raspberrypi0-wifi} # raspberrypi0-wifi (default), raspberrypi0, ras
 IMAGE=pitrezor-build
 IMGFILE=imgs/pitrezor-$MACHINE-$TAG.img
 
-# Install Requirements for Ubuntu 22.04 build environment
-sudo apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping locales liblz4-tool zstd
-
 # Build Image
 mkdir -p imgs
 rm -v $(pwd)/imgs:/imgs:z $IMAGE
