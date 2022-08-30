@@ -56,6 +56,9 @@ An example of the configuration file can be seen below.
     
     # Enable fbcp-ili9431 based display if required (Don't set this to 1 if you have also enabled an SPI based display above)
     export ENABLE_FBCPILI9341_DISPLAY=1
+	
+	# Select Bitcoin Only Firmware if desired
+    export BITCOIN_ONLY=0
 
 By default, `ENABLE_FBCPILI9341_DISPLAY` option will support the [Waveshare 240x240 1.3inch LCD HAT](https://www.waveshare.com/1.3inch-lcd-hat.htm) that is used with the [SeedSigner](https://seedsigner.com/). If you want to use a different hat, you will need to modify the fbcp-ili9341 recipe with the cmake arguments found here: https://github.com/juj/fbcp-ili9341
 
