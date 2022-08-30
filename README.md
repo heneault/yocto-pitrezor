@@ -8,7 +8,7 @@ Note: This process will download and build a large amount of software, so be sur
 ## How to build pitrezor image?
 
 # Build Release from Source via Docker
-This is the most reliable way to build your own copy of the offial release images directly from the official piTrezor Github repositories. (This process will ignore any changes you make to your own local repository by default)
+This is the most reliable way to build your own copy of the release images via Docker. (This will automatically handle installing all requirements for the build environment)
 
 The steps are:
 1. [Install Docker](https://docs.docker.com/engine/installation/)
