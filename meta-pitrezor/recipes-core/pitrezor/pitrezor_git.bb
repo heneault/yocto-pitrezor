@@ -21,12 +21,28 @@ do_configure() {
 }
 
 do_compile() {
+  export BITCOIN_ONLY=0
   export EMULATOR=1
   export PIZERO=1
   export CPUFLAGS=""
   export ARCH_BITS=${SITEINFO_BITS}
   export CC_FOR_BUILD=${BUILD_CC}
+  
   cd legacy
+  
+  make clean
+  cd firmware
+  make clean
+  cd protob
+  make clean
+  cd ../../
+  make clean
+  cd emulator
+  make clean
+  cd pizero
+  make clean
+  cd ../../
+  
   make vendor
   make -C emulator/pizero
   make -C emulator
@@ -34,13 +50,39 @@ do_compile() {
   make -C firmware/protob
   make
   make -C firmware trezor.elf
+  cp firmware/trezor.elf firmware/trezor-universal.firmware
+  
+  export BITCOIN_ONLY=1
+
+  make clean
+  cd firmware
+  make clean
+  cd protob
+  make clean
+  cd ../../
+  make clean
+  cd emulator
+  make clean
+  cd pizero
+  make clean
+  cd ../../
+
+  make vendor
+  make -C emulator/pizero
+  make -C emulator
+  make -C vendor/nanopb/generator/proto
+  make -C firmware/protob
+  make
+  make -C firmware trezor.elf
+  cp firmware/trezor.elf firmware/trezor-bitcoinonly.firmware
 }
 
 do_install() {
     install -d ${D}${bindir}
     install -d ${D}${datadir}/pitrezor
     install -m 0755 ${WORKDIR}/start_pitrezor ${D}${bindir}
-    install -m 0766 ${B}/legacy/firmware/trezor.elf ${D}${bindir}/pitrezor
+    install -m 0766 ${B}/legacy/firmware/trezor-universal.firmware ${D}${bindir}/pitrezor-universal
+    install -m 0766 ${B}/legacy/firmware/trezor-bitcoinonly.firmware ${D}${bindir}/pitrezor-bitcoinonly
     install -m 0444 ${WORKDIR}/pitrezor.config ${D}${datadir}/pitrezor
     unix2dos ${D}${datadir}/pitrezor/pitrezor.config
 }
