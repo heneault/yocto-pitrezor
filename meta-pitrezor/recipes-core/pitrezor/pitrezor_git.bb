@@ -20,8 +20,10 @@ S = "${WORKDIR}/git"
 do_configure() {
 }
 
+  # Compile the Bitcoin-Only firmware first, then the Universal. (And completely clean between builds)
 do_compile() {
-  export BITCOIN_ONLY=0
+  export BITCOIN_ONLY=1
+
   export EMULATOR=1
   export PIZERO=1
   export CPUFLAGS=""
@@ -29,7 +31,6 @@ do_compile() {
   export CC_FOR_BUILD=${BUILD_CC}
   
   cd legacy
-  
   make clean
   cd firmware
   make clean
@@ -43,30 +44,6 @@ do_compile() {
   make clean
   cd ../../
   
-  make vendor
-  make -C emulator/pizero
-  make -C emulator
-  make -C vendor/nanopb/generator/proto
-  make -C firmware/protob
-  make
-  make -C firmware trezor.elf
-  cp firmware/trezor.elf firmware/trezor-universal.firmware
-  
-  export BITCOIN_ONLY=1
-
-  make clean
-  cd firmware
-  make clean
-  cd protob
-  make clean
-  cd ../../
-  make clean
-  cd emulator
-  make clean
-  cd pizero
-  make clean
-  cd ../../
-
   make vendor
   make -C emulator/pizero
   make -C emulator
@@ -75,6 +52,30 @@ do_compile() {
   make
   make -C firmware trezor.elf
   cp firmware/trezor.elf firmware/trezor-bitcoinonly.firmware
+  
+  export BITCOIN_ONLY=0
+
+  make clean
+  cd firmware
+  make clean
+  cd protob
+  make clean
+  cd ../../
+  make clean
+  cd emulator
+  make clean
+  cd pizero
+  make clean
+  cd ../../
+
+  make vendor
+  make -C emulator/pizero
+  make -C emulator
+  make -C vendor/nanopb/generator/proto
+  make -C firmware/protob
+  make
+  make -C firmware trezor.elf
+  cp firmware/trezor.elf firmware/trezor-universal.firmware
 }
 
 do_install() {
