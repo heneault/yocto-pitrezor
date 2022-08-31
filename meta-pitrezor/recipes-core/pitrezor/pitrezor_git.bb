@@ -20,7 +20,7 @@ S = "${WORKDIR}/git"
 do_configure() {
 }
 
-  # Compile the Bitcoin-Only firmware first, then the Universal. (And completely clean between builds)
+# Compile the Bitcoin-Only firmware first, then the Universal. (And completely clean between builds)
 do_compile() {
   export BITCOIN_ONLY=1
 
