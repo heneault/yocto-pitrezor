@@ -3,4 +3,14 @@
 cd /boot
 dos2unix -n pitrezor.config /var/volatile/pitrezor.config
 source /var/volatile/pitrezor.config
-TREZOR_OLED_FULLSCREEN=1 /usr/bin/pitrezor
+
+#Check whether to run Bitcoin Only Firmware (Default to no if no environment variable set for this)
+if [ "$BITCOIN_ONLY" -eq 0 ] 
+then
+  echo "Starting piTrezor-Universal"
+  TREZOR_OLED_FULLSCREEN=1 /usr/bin/pitrezor-universal
+else
+  echo "Starting piTrezor-BitcoinOnly"
+  TREZOR_OLED_FULLSCREEN=1 /usr/bin/pitrezor-bitcoinonly
+fi
+
