@@ -7,3 +7,4 @@ build/sstate-cache/
 build/tmp/
 build/bitbake-cookerdaemon.log
 imgs
+.idea

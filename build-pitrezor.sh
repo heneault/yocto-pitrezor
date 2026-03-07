@@ -13,7 +13,7 @@ chown $DOCKER_UID:$DOCKER_UID imgs
 docker build -t $IMAGE .
 
 docker run -t --rm -v $(pwd)/imgs:/imgs:z $IMAGE /bin/bash -c "\
-git clone https://github.com/heneault/yocto-pitrezor.git && \
+git clone https://github.com/3rdIteration/yocto-pitrezor.git && \
 cd yocto-pitrezor && \
 git checkout $TAG && \
 git submodule update --init --recursive && \

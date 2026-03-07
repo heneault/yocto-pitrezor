@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#Read variables from config file
+cd /boot
+dos2unix -n pitrezor.config /var/volatile/pitrezor.config.fbcp
+source /var/volatile/pitrezor.config.fbcp
+
+#Sleep for two seconds to give the piTrezor time to start and go fullscreen (Can cause issues if piTrezor starts after this app)
+sleep 1
+
+#Check whether to use the fbcp-ili9341 based display mirror (Default to no if no environment variable set for this)
+if [ "$ENABLE_FBCPILI9341_DISPLAY" -eq 1 ] 
+then
+  echo "Starting fbcp-ili9341"
+  /usr/bin/fbcp-ili9341
+else
+  echo "Skipping fbcp-ili9341"
+fi

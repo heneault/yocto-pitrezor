@@ -29,6 +29,7 @@ customize_image() {
   echo "pitrezor" > ${IMAGE_ROOTFS}/etc/hostname
 
   echo "tz:5:respawn:/usr/bin/start_pitrezor" >> ${IMAGE_ROOTFS}/etc/inittab
+  echo "sm:5:respawn:/usr/bin/start_mirrorhdmi" >> ${IMAGE_ROOTFS}/etc/inittab
 
   echo "LABEL=boot /boot vfat defaults 0 0" >> ${IMAGE_ROOTFS}/etc/fstab
 
